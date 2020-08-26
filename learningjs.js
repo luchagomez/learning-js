@@ -1,31 +1,64 @@
-const famousSayings = ['Fortune favors the brave.', 'A joke is a very serious thing.', 'Where there is love there is life.'];
-const listItem = famousSayings[0];
-console.log(listItem);
+// .foreach
 
-let condiments = ['Ketchup', 'Mustard', 'Soy Sauce', 'Sriracha'];
+console.log('------- .forEach ITERATOR BEGIN -------')
+const groceries = ['brown sugar', 'salt', 'cranberries', 'walnuts'];
 
-const utensils = ['Fork', 'Knife', 'Chopsticks', 'Spork'];
+groceries.forEach(groceryItem => console.log(' - ' + groceryItem));
 
-//condiments[0]= 'Mayo';
-//console.log(condiments);
-
-//condiments =['Mayo'];
-//console.log(condiments);
-
-//utensils[3]= 'Spoon';
-console.log(utensils);
-utensils = ['Spoon']; //utensils is not mutable because it is declared using const
-
-//const groceryList = ['orange juice', 'bananas', 'coffee beans', 'brown rice', 'pasta', 'coconut oil', 'plantains'];
-
-//const orangeJuice= groceryList.shift();
-//console.log(groceryList);
-//console.log(orangeJuice);
-
-function addUtensil (arr){
-    arr.push('Spoon');
+printGrocery = (element) => {
+    console.log(' - ' + element);
 }
+groceries.forEach(printGrocery);
 
-addUtensil(utensils);
+/*
+groceries.forEach() --> llama al método forEach en el array groceries
+.forEach() --> ejecuta el mismo código para cada elemento del array. 
+En el ejemplo, for each es invocado utilizando la función printGrocery.
+Esta función requiere un argumento 'element' (por como está definida) y lo imprime.
+En este caso se define a printGrocery como "callback function" que es una función que se pasa como argumento en otra función, en este caso esa otra función es el forEach.
 
-console.log(utensils);
+el método forEach siempre devuelve "undefined". 
+ */
+
+/*------------------------------------------------------------------*/
+
+const fruits = ['mango', 'papaya', 'pineapple', 'apple'];
+
+// Iterate over fruits below
+
+fruits.forEach(fruitItem => console.log('I want to eat a ' + fruitItem));
+console.log('------- .forEach ITERATOR END -------')
+
+console.log('------- .map ITERATOR BEGIN -------')
+//.map
+const numbers = [1, 2, 3, 4, 5];
+
+const bigNumbers0 = numbers.map(number => {
+    return numbers * 10;
+});
+/*
+.map --> funciona similar al for each, pero devuelve un array. 
+Toma cada uno de los elementos en el array como argumentos en otra función, la cual ejecuta el código sobre el mismo y devuelve el resultado en otro array.
+En el ejemplo, map toma los elementos de numbers y los pasa como argumentos para la función BigNumbers. 
+BigNumbers multiplica cada elemento del array por 10 y los devuelve.
+ */
+
+const animals = ['Hen', 'elephant', 'llama', 'leopard', 'ostrich', 'Whale', 'octopus', 'rabbit', 'lion', 'dog'];
+
+// Create the secretMessage array below
+
+const secretMessage = animals.map(animal => {
+    return animal.charAt(0);
+})
+
+console.log(secretMessage.join(''));
+
+const bigNumbers = [100, 200, 300, 400, 500];
+
+// Create the smallNumbers array below
+
+const smallNumbers = bigNumbers.map(number => {
+    return number/100;
+})
+console.log(smallNumbers);
+console.log('------- .map ITERATOR END -------')
